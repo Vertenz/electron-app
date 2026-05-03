@@ -1,0 +1,50 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Vertenz/electron-app#readme",
+  "bugs": {
+    "url": "https://github.com/Vertenz/electron-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vertenz/electron-app.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "prepare": "husky",
+    "lint": "eslint --cache --fix .",
+    "format": "prettier --write . --ignore-unknown",
+    "check": "eslint . && prettier --check . --ignore-unknown",
+    "lint:all": "npm run lint && npm run format",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,mts,js,mjs,cjs}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md,yaml,yml,html}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.6.0",
+    "electron": "^41.5.0",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.1"
+  }
+}

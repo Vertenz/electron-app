@@ -1,0 +1,17 @@
+# Сборка
+dist/
+out/
+release/
+.webpack/
+
+# Зависимости
+node_modules/
+
+# Кэши и артефакты
+.eslintcache
+coverage/
+*.min.js
+*.min.css
+
+# Автогенерированные файлы
+**/*.d.ts

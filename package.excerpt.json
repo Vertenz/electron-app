@@ -1,0 +1,50 @@
+// Добавь эти секции в свой package.json
+// (это выдержка — не заменяет весь файл)
+
+{
+  "scripts": {
+    // ── Линтинг ──────────────────────────────────────────────────────────────
+    "lint": "eslint src test *.mjs *.cjs",
+    "lint:fix": "eslint --fix src test *.mjs *.cjs",
+    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,cjs,mts,cts,json,css,md,yaml,yml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,cjs,mts,cts,json,css,md,yaml,yml}\"",
+    "typecheck": "tsc --noEmit",
+
+    // ── Полная проверка (запускать перед PR) ─────────────────────────────────
+    "check": "npm run typecheck && npm run lint && npm run format:check",
+
+    // ── Husky setup (автоматически после npm install) ─────────────────────────
+    "prepare": "husky"
+  },
+
+  "lint-staged": {
+    "*.{ts,tsx,mts,cts,js,mjs,cjs}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md,yaml,yml,html}": ["prettier --write"]
+  },
+
+  "devDependencies": {
+    // ── ESLint экосистема ────────────────────────────────────────────────────
+    "eslint": "^9.15.0",
+    "@eslint/js": "^9.15.0",
+    "typescript-eslint": "^8.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.13.0",
+
+    // ── Prettier ──────────────────────────────────────────────────────────────
+    "prettier": "^3.0.3",
+
+    // ── Git hooks ─────────────────────────────────────────────────────────────
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+
+    // ── TypeScript ────────────────────────────────────────────────────────────
+    "typescript": "^5.7.2",
+
+    // ── Типы для Electron ─────────────────────────────────────────────────────
+    "electron": "^35.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
